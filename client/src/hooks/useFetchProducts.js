@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 
-const SERVER_API = 'http://localhost:5000'
-
-const useFetchProducts = ({ query, pageNumber, size, sort }) => {
+const SERVER_API = 'http://localhost:5001'
+const useFetchProducts = ({ query, pageNumber, size, additionalPages, sort }) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -13,11 +12,7 @@ const useFetchProducts = ({ query, pageNumber, size, sort }) => {
             setError(null);
 
             try {
-                const response = await fetch(`${SERVER_API}/api/test`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ query, pageNumber, size, sort }),
-                });
+                const response = await fetch(`${SERVER_API}/api/test?query=${query}&pageNumber=${pageNumber}&size=${size}&additionalPages=${additionalPages}&sort=${sort}`)
                 if (!response.ok) throw new Error('Failed to fetch products');
                 const data = await response.json();
                 setProducts(data.products);
