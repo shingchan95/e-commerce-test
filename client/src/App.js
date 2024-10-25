@@ -4,8 +4,18 @@ import FilterSection from './components/FilterSection';
 import SortSection from './components/SortSection';
 import ProductCard from './components/ProductCard';
 import Pagination from './components/Pagination';
+import { useState } from 'react';
+import useFetchProducts from './hooks/useFetchProducts';
 
 function App() {
+  const [query, setQuery] = useState('toilets');
+  const [pageNumber, setPageNumber] = useState(1);
+  const [size] = useState(0);
+  const [additionalPages] = useState(0);
+  const [sort, setSort] = useState(1);
+
+  const { products, loading, error } = useFetchProducts({ query, pageNumber, size, additionalPages, sort });
+
   return (
     <div className='min-h-screen flex flex-col bg-gray-100'>
       <Header />
@@ -15,7 +25,7 @@ function App() {
         </aside>
         <section className='flex-1 ml-4'>
           <SortSection />
-          <ProductCard />
+          <ProductCard products={products} />
           <Pagination />
         </section>
       </div>
