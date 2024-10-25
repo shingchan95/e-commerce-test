@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import FilterSection from './components/FilterSection';
+import SortSection from './components/SortSection';
+import ProductCard from './components/ProductCard';
+import Pagination from './components/Pagination';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='min-h-screen flex flex-col bg-gray-100'>
+      <Header />
+      <div className='flex flex-1 p-4'>
+        <aside className='w-1/4 p-4 bg-white shadow-md'>
+          <FilterSection />
+        </aside>
+        <section className='flex-1 ml-4'>
+          <SortSection />
+          <ProductCard />
+          <Pagination />
+        </section>
+      </div>
     </div>
   );
 }
