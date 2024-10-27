@@ -15,8 +15,8 @@ function App() {
   const [additionalPages] = useState(0); // variable to add additional page to the query
   const [sort, setSort] = useState(1); // 1= recommended, 2= price low to hight 3= price high to low, 4= largest discount
 
-  // custom hook to fetch products based on query, pageNumber, size, additionalPages, sort
-  const { products, loading, error } = useFetchProducts({ query, pageNumber, size, additionalPages, sort });
+  const { products, pagination, facets, loading, error } = useFetchProducts({ query, pageNumber, size, additionalPages, sort });
+
 
   return (
     <div className='min-h-screen flex flex-col bg-gray-100'>
