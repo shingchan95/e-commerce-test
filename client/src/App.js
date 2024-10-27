@@ -14,7 +14,7 @@ function App() {
   const [additionalPages] = useState(0);
   const [sort, setSort] = useState(1);
 
-  const { products, pagination, facets, oading, error } = useFetchProducts({ query, pageNumber, size, additionalPages, sort });
+  const { products, pagination, facets, loading, error } = useFetchProducts({ query, pageNumber, size, additionalPages, sort });
 
   return (
     <div className='min-h-screen flex flex-col bg-gray-100'>
