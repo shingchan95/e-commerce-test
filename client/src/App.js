@@ -19,9 +19,9 @@ function App() {
   return (
     <div className='min-h-screen flex flex-col bg-gray-100'>
       <Header />
-      <div className='flex flex-1 p-4'>
-        <aside className='w-1/4 p-4 bg-white shadow-md'>
-          <FilterSection />
+      <div className='lg:flex flex-1 p-4 md:flex-row'>
+        <aside className='lg:w-1/6 h-full p-4 bg-white shadow-md md:w-full'>
+          <FilterSection setQuery={setQuery} />
         </aside>
         <section className='flex-1 ml-4'>
           <SortSection />
