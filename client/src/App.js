@@ -30,7 +30,7 @@ function App() {
         <section className='flex-1 ml-4'>
           <SortSection setSort={setSort} />
           {products &&
-            <ProductCard products={products} loading={loading} />
+            <ProductCard products={products} pagination={pagination} loading={loading} />
           }
           {pagination &&
             <Pagination pageNumber={pageNumber} setPageNumber={setPageNumber} pagination={pagination} size={size} setSize={setSize} />
