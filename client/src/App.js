@@ -8,20 +8,22 @@ import { useState } from 'react';
 import useFetchProducts from './hooks/useFetchProducts';
 
 function App() {
+  // state variables for product query
   const [query, setQuery] = useState('toilets');
   const [pageNumber, setPageNumber] = useState(1);
-  const [size] = useState(0);
-  const [additionalPages] = useState(0);
-  const [sort, setSort] = useState(1);
+  const [size] = useState(0); // 0 return a default size of 30 items
+  const [additionalPages] = useState(0); // variable to add additional page to the query
+  const [sort, setSort] = useState(1); // 1= recommended, 2= price low to hight 3= price high to low, 4= largest discount
 
+  // custom hook to fetch products based on query, pageNumber, size, additionalPages, sort
   const { products, loading, error } = useFetchProducts({ query, pageNumber, size, additionalPages, sort });
 
   return (
     <div className='min-h-screen flex flex-col bg-gray-100'>
       <Header />
-      <div className='flex flex-1 p-4'>
-        <aside className='w-1/4 p-4 bg-white shadow-md'>
-          <FilterSection />
+      <div className='lg:flex flex-1 p-4 md:flex-row'>
+        <aside className='lg:w-1/6 h-full p-4 bg-white shadow-md md:w-full'>
+          <FilterSection setQuery={setQuery} />
         </aside>
         <section className='flex-1 ml-4'>
           <SortSection />
