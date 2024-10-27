@@ -17,7 +17,6 @@ function App() {
 
   const { products, pagination, facets, loading, error } = useFetchProducts({ query, pageNumber, size, additionalPages, sort });
 
-  console.log(pagination)
   return (
     <div className='min-h-screen flex flex-col bg-gray-100'>
       <Header />
@@ -30,7 +29,7 @@ function App() {
         <section className='flex-1 ml-4'>
           <SortSection setSort={setSort} />
           {products &&
-            <ProductCard products={products} />
+            <ProductCard products={products} pagination={pagination} />
           }
           {pagination &&
             <Pagination pageNumber={pageNumber} setPageNumber={setPageNumber} pagination={pagination} size={size} setSize={setSize} />
