@@ -1,8 +1,12 @@
 import React from 'react';
+import LoadingSpinner from './LoadingSpinner';
 
-function ProductCards({ products, pagination }) {
+function ProductCards({ products, pagination, loading }) {
     return (
-        <div className="">
+        <div>
+            {/* Loading Spinner */}
+            {loading && <LoadingSpinner />}
+
             {/* Total items count display */}
             <div className="text-gray-600 text-sm p-2 text-right">
                 Total Items: {pagination?.total}
