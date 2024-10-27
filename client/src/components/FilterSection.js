@@ -10,7 +10,7 @@ function FilterSection({ setQuery, facets }) {
     };
     return (
         <div>
-            <div className="collapse collapse-arrow">
+            <div className="collapse lg:collapse-open">
                 <input type="checkbox" className="peer" />
                 <div className="bg-base-200 collapse-title font-semibold text-left cursor-pointer">
                     <h3 className="font-bold">Filter</h3>
