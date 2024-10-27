@@ -25,7 +25,7 @@ function App() {
           <FilterSection setQuery={setQuery} facets={facets} />
         </aside>
         <section className='flex-1 ml-4'>
-          <SortSection />
+          <SortSection setSort={setSort} />
           <ProductCard products={products} />
           <Pagination />
         </section>
