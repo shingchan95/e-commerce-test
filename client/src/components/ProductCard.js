@@ -1,11 +1,14 @@
 import React from 'react';
 import LoadingSpinner from './LoadingSpinner';
+import ErrorMessage from './ErrorMessage';
 
-function ProductCards({ products, pagination, loading }) {
+function ProductCards({ products, pagination, loading, error }) {
     return (
         <div>
             {/* Loading Spinner */}
             {loading && <LoadingSpinner />}
+            {/* Error Message */}
+            {error && <ErrorMessage />}
 
             {/* Total items count display */}
             <div className="text-gray-600 text-sm p-2 text-right">
