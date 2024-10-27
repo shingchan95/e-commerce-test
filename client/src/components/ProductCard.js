@@ -1,8 +1,10 @@
 import React from 'react';
+import LoadingSpinner from './LoadingSpinner';
 
-function ProductCards({ products }) {
+function ProductCards({ products, loading }) {
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {loading && <LoadingSpinner />}
             {
                 products.map((product) => (
                     <div key={product.id} className="p-4 bg-white shadow-md cursor-pointer hover:opacity-60">
