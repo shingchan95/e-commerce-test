@@ -8,12 +8,14 @@ import { useState } from 'react';
 import useFetchProducts from './hooks/useFetchProducts';
 
 function App() {
+  // state variables for product query
   const [query, setQuery] = useState('toilets');
   const [pageNumber, setPageNumber] = useState(1);
-  const [size] = useState(0);
-  const [additionalPages] = useState(0);
-  const [sort, setSort] = useState(1);
+  const [size] = useState(0); // 0 return a default size of 30 items
+  const [additionalPages] = useState(0); // variable to add additional page to the query
+  const [sort, setSort] = useState(1); // 1= recommended, 2= price low to hight 3= price high to low, 4= largest discount
 
+  // custom hook to fetch products based on query, pageNumber, size, additionalPages, sort
   const { products, loading, error } = useFetchProducts({ query, pageNumber, size, additionalPages, sort });
 
   return (
